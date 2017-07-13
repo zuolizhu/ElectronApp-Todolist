@@ -1,0 +1,22 @@
+{
+  "name": "electron-todolist",
+  "version": "1.0.0",
+  "description": "A simple Electron todolist app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  }
+}
