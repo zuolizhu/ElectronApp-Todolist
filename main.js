@@ -15,6 +15,11 @@ app.on('ready', () => {
 
 const menuTemplate = [
   {
-    label: 'Click'
+    label: 'Click',
+    submenu: [
+      {
+        label: 'Add Todo'
+      }
+    ]
   }
 ];
