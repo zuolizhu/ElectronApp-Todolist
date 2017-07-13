@@ -3,6 +3,7 @@ const electron = require('electron')
 const { app, BrowserWindow, Menu } = electron;
 
 let mainWindow;
+let popupWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({});
@@ -13,12 +14,19 @@ app.on('ready', () => {
 
 });
 
+function createPopupWindow() {
+  popupWindow = new BrowserWindow({
+    width: 300, height: 200, title: 'Add new task'
+  });
+}
+
 const menuTemplate = [
   {
     label: 'Click',
     submenu: [
       {
-        label: 'Add Task'
+        label: 'Add Task',
+        click() { createPopupWindow(); }
       },
       {
         label: 'Quit',
