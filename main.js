@@ -20,6 +20,7 @@ function createPopupWindow() {
     width: 300, height: 200, title: 'Add new task'
   });
   popupWindow.loadURL(`file://${__dirname}/popup.html`);
+  popupWindow.on('closed', () => popupWindow = null);
 }
 
 ipcMain.on('addTask', (e, task) => {
