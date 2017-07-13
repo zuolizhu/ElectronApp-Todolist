@@ -18,8 +18,21 @@ const menuTemplate = [
     label: 'Click',
     submenu: [
       {
-        label: 'Add Todo'
+        label: 'Add Task'
+      },
+      {
+        label: 'Quit',
+        accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
+        click() {
+          app.quit();
+        }
       }
     ]
   }
 ];
+
+//Add one empty menu before Click menu
+//if user is on MacOS
+if (process.platform === 'darwin') {
+  menuTemplate.unshift({});
+}
