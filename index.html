@@ -1,12 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Todolist</title>
-  </head>
-  <body>
-    <h1>Todolist</h1>
+<head>
+  <meta charset="UTF-8">
+  <title>Todolist</title>
+</head>
+<body>
+  <h1>Todolist</h1>
+  <ul></ul>
 
-  </body>
+</body>
 
-</html>
+<script>
+  const electron = require('electron');
+  const { ipcRenderer } = electron;
+
+  ipcRenderer.on('addTask', (e, task) => {
+    const li = document.createElement('li');
+    const text = document.createTextNode(task);
+    li.appendChild(text);
+    document.querySelector('ul').appendChild(li);
+  });
+
+</script>
