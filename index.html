@@ -1,6 +1,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Todolist</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <h1>Todolist</h1>
@@ -17,6 +18,10 @@
     const text = document.createTextNode(task);
     li.appendChild(text);
     document.querySelector('ul').appendChild(li);
+  });
+
+  ipcRenderer.on('taskClear', () => {
+    document.querySelector('ul').innerHTML = '';
   });
 
 </script>

@@ -38,6 +38,12 @@ const menuTemplate = [
         click() { createPopupWindow() }
       },
       {
+        label: 'Clear List',
+        click() {
+          mainWindow.webContents.send('taskClear');
+        }
+      },
+      {
         label: 'Quit',
         accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Ctrl+Q',
         click() {
@@ -48,8 +54,6 @@ const menuTemplate = [
   }
 ];
 
-//Add one empty menu before Click menu
-//if user is on MacOS
 if (process.platform === 'darwin') {
   menuTemplate.unshift({});
 }
@@ -58,13 +62,8 @@ if (process.env.NODE_ENV !== 'production') {
   menuTemplate.push({
     label: 'Developer',
     submenu: [
-      {
-        label: 'Toggle Developer Tools',
-        accelerator: process.platform === 'darwin' ? 'Cmd+D' : 'Ctrl+D',
-        click(item, focusedWindow) {
-          focusedWindow.toggleDevTools();
-        }
-      }
+      { role: 'reload' },
+      {role: 'toggledevtools'}
     ]
   });
 }
