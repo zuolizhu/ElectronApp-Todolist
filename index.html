@@ -12,16 +12,17 @@
 <script>
   const electron = require('electron');
   const { ipcRenderer } = electron;
+  const list = document.querySelector('ul');
 
   ipcRenderer.on('addTask', (e, task) => {
     const li = document.createElement('li');
     const text = document.createTextNode(task);
     li.appendChild(text);
-    document.querySelector('ul').appendChild(li);
+    list.appendChild(li);
   });
 
   ipcRenderer.on('taskClear', () => {
-    document.querySelector('ul').innerHTML = '';
+    list.innerHTML = '';
   });
 
 </script>
